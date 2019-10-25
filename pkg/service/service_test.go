@@ -71,6 +71,9 @@ var _ = Describe("Service Public API", func() {
 			BeforeEach(func() {
 				users.GetReturns(&service.User{GUID: "123"}, nil)
 			})
+			It("should have called users.Get", func() {
+				Expect(users.GetCallCount()).To(Equal(1))
+			})
 
 			Context("but file is not found in storage", func() {
 
